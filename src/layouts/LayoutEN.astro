@@ -1,0 +1,32 @@
+---
+import Main from '../layouts/Main.astro';
+import Cover from '../components/Cover.astro';
+import Nav from '../components/Nav.astro';
+import SingleNavButton from '../components/SingleNavButton.astro';
+import DropdownNavButton from '../components/DropdownNavButton.astro';
+import NavButtonEnd from '../components/NavButtonEnd.astro';
+import { Debug } from 'astro/components';
+
+const { frontmatter } = Astro.props;
+const links = [
+	{name: "Home", url: "/"},
+	{name: "About", url: "/about"},
+	{name: "Projects", url: "/projects"},
+]
+---
+
+<Main title={frontmatter.title + " | Saving Coral Reefs"}>
+	<Nav title="Saving Coral Reefs">
+		<SingleNavButton href="/" active={frontmatter.url == "" && true}>Home</SingleNavButton>
+		<SingleNavButton href="/tai-coral" active={frontmatter.url == "/tai-coral" && true}>Taiwan's Coral Reefs</SingleNavButton> 
+		<SingleNavButton href="#" active={frontmatter.url == "#" && true}>Another Page</SingleNavButton>
+		<SingleNavButton href="#" active={frontmatter.url == "#" && true}>Impact</SingleNavButton>
+		<SingleNavButton href="#" active={frontmatter.url == "#" && true}>Stuff</SingleNavButton>
+		<NavButtonEnd href="#" slot="end">中文</NavButtonEnd>
+		<NavButtonEnd href="#" slot="end">Sitemap</NavButtonEnd>
+	</Nav>
+	<Cover src={frontmatter.bg}>{frontmatter.title}</Cover>
+	<div class="container mx-auto">
+		<slot/>
+	</div>
+</Main>

@@ -1,0 +1,25 @@
+---
+export interface Props {
+    src: string;
+}
+
+let { src } = Astro.props;
+src = "url(" + src + ")";
+---
+<div class="flex top-level items-end mb-3">
+  <div class="container mx-auto mb-7">
+    <h1 class="text-white text-7xl"><slot/></h1>
+  </div>
+</div>
+<style define:vars={{src}}>
+    div.top-level {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--src);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      min-height: 400px;
+    }
+    h1 {
+      font-family: 'Patua One';
+    }
+</style>

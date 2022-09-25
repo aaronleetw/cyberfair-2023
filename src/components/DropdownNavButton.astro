@@ -1,0 +1,23 @@
+---
+export interface Props {
+  name: string;
+  links: Array<{
+    name: string;
+    url: string;
+  }>;
+}
+const { name, links } = Astro.props;
+---
+<div class="p-2 group hover:bg-lc4 transition-all rounded text-sm cursor-pointer">
+  <div class="text-gray-300 group-hover:!text-c2 flex justify-center">
+    {name} <span class="material-symbols-outlined">expand_more</span>
+  </div>
+</div>
+<div class="menu absolute bg-white rounded border-gray-300 border">
+  {links.map((link) => (
+    <a href={link.url} class="block p-2 hover:bg-gray-100">
+      {link.name}
+    </a>
+  ))}
+</div>
+<!-- TODO: popper.js? -->

@@ -1,0 +1,39 @@
+---
+export interface Props {
+    title: string;
+    icon?: string;
+}
+const { title, icon } = Astro.props;
+---
+
+<nav class="bg-gradient-to-r from-c1 to-dc2 p-3 text-white shadow-lg sticky top-0">
+    <div class="flex items-center justify-between">
+        <div class="flex justify-start">
+            <a href="/" class="group transition duration-300 mr-4">
+                <h2 class="text-2xl">{title}</h2>
+                <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+            </a>
+            <div id="menu" class="lg:flex lg:items-center lg:gap-1 flex-wrap hidden">
+                <slot>
+                    Warning: No children (Nav component)
+                </slot>
+            </div>
+        </div>
+        <div id="menu-end" class="flex justify-center items-center gap-2">
+            <div class="flex flex-wrap gap-2 items-center justify-center">
+                <slot name="end" />
+            </div>
+            <div id="menu-button" class="lg:hidden flex items-center border border-gray-300 rounded p-2 cursor-pointer group hover:bg-lc4 transition">
+                <span id="menu-button-icon" class="material-symbols-outlined group-hover:text-c2 transition">Menu</span>
+            </div>
+        </div>
+        <script is:inline>
+            document.getElementById("menu-button").addEventListener("click", function (event) {
+                event.preventDefault();
+                document.getElementById("menu").classList.toggle("hidden");
+                document.getElementById("menu").classList.toggle("flex");
+                document.getElementById("menu-button-icon").textContent = document.getElementById("menu-button-icon").textContent === "Menu" ? "Close" : "Menu";
+            });
+        </script>
+    </div>
+</nav>

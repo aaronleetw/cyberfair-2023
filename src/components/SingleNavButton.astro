@@ -1,0 +1,15 @@
+---
+export interface Props {
+    href: string;
+    active?: boolean;
+}
+const { href, active } = Astro.props;
+---
+{active ? 
+    <div class="p-2 group bg-llc4 transition-all rounded text-sm">
+        <a href={href} class="text-c2 pointer-events-none"><slot /></a>
+    </div> :
+    <div class="p-2 group hover:bg-lc4 transition-all rounded text-sm">
+        <a href={href} class="text-gray-300 group-hover:!text-c2"><slot /></a>
+    </div>
+}
