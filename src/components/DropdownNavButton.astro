@@ -1,23 +1,93 @@
 ---
 export interface Props {
+  id: string;
   name: string;
   links: Array<{
     name: string;
     url: string;
   }>;
+  currUrl: string;
 }
-const { name, links } = Astro.props;
+const { id, name, links, currUrl } = Astro.props;
+let componentActive = false;
+for (const link of links) {
+  if (link.url === currUrl) {
+    componentActive = true;
+    break;
+  }
+}
 ---
-<div class="p-2 group hover:bg-lc4 transition-all rounded text-sm cursor-pointer">
-  <div class="text-gray-300 group-hover:!text-c2 flex justify-center">
-    {name} <span class="material-symbols-outlined">expand_more</span>
+
+<div id={id} data-active="0">
+  <div class="p-2 activator group hover:bg-lc4 transition-all rounded text-sm cursor-pointer" data-componentactive={componentActive ? "1" : "0"}>
+    <div class="text-gray-300 group-hover:!text-c2 flex justify-center">
+      {name} <span id="chevron" class="material-symbols-outlined">expand_more</span>
+    </div>
+  </div>
+  <div class="menu absolute bg-white rounded border-gray-300 border">
+    {links.map((link) => (
+      <a href={link.url} class="block p-2 hover:bg-gray-100 text-black text-xs" data-selectionactive={link.url === currUrl ? "1" : "0"}>
+        {link.name}
+      </a>
+    ))}
   </div>
 </div>
-<div class="menu absolute bg-white rounded border-gray-300 border">
-  {links.map((link) => (
-    <a href={link.url} class="block p-2 hover:bg-gray-100">
-      {link.name}
-    </a>
-  ))}
-</div>
-<!-- TODO: popper.js? -->
+<style>
+  div[data-active="1"] .activator.group {
+    background-color: rgb(220 255 252);
+  }
+  .activator.group[data-componentactive="1"] {
+    background-color: #fff;
+  }
+  div[data-active="1"] .activator.group div, .activator.group[data-componentactive="1"] div {
+    color: rgb(19 111 99);
+  }
+  div[data-active="0"] .menu {
+    visibility: hidden;
+  }
+  div[data-active="1"] .menu {
+    visibility: visible;
+  }
+  div .activator.group #chevron {
+    transition: transform 0.2s ease-in-out;
+  }
+  div[data-active="1"] .activator.group #chevron {
+    transform: rotate(180deg);
+  }
+  div.menu a[data-selectionactive="1"] {
+    background-color: rgb(220 255 252);
+    pointer-events: none;
+    cursor: default;
+  }
+</style>
+<script define:vars={{ id: '#' + id }} is:inline>
+  const container = document.querySelector(id);
+  const button = document.querySelector(id + ' .activator.group');
+  const tooltip = document.querySelector(id + ' .menu');
+  Popper.createPopper(button, tooltip, {
+    placement: "bottom-start",
+    modifiers: [
+      Popper.preventOverflow,
+      Popper.flip,
+      {
+        name: "offset",
+        options: {
+          offset: [0, 8],
+        },
+      },
+    ],
+    onFirstUpdate: () => {
+      container.dataset.active = "0";
+    }
+  });
+
+  button.addEventListener('click', () => {
+    container.dataset.active = container.dataset.active === "0" ? "1" : "0";
+  });
+
+  document.querySelector('body').addEventListener('click', (e) => {
+    if (!container.contains(e.target)) {
+      container.dataset.active = "0";
+    }
+  });
+</script>

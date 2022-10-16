@@ -1,9 +1,10 @@
 ---
 export interface Props {
     href: string;
-    active?: boolean;
+    currUrl?: string;
 }
-const { href, active } = Astro.props;
+const { href, currUrl } = Astro.props;
+const active = href === currUrl || (href === '/' && currUrl === '');
 ---
 {active ? 
     <div class="p-2 group bg-llc4 transition-all rounded text-sm">

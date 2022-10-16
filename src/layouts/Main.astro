@@ -1,4 +1,5 @@
 ---
+import { Image } from '@astrojs/image/components';
 export interface Props {
 	title: string;
 }
@@ -13,6 +14,7 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />		<meta name="generator" content={Astro.generator} />
+		<script src="https://unpkg.com/@popperjs/core@2" is:inline></script>
 		<title>{title}</title>
 	</head>
 	<body class="bg-bg">
@@ -20,11 +22,11 @@ const { title } = Astro.props;
 	</body>
 	<footer class="bg-lc4 border-t-black border-t">
 		<div class="md:flex block container mx-auto p-5 items-center justify-between">
-			<a href="https://www.fhjh.tp.edu.tw/">
-				<img src="/img/fhjh.png" class="md:h-20 h-16 md:mb-0 mb-3 md:mx-0 mx-auto" alt="">
+			<a href="https://www.fhjh.tp.edu.tw/" target="_blank">
+				<Image src="/img/fhjh.png" class="md:h-20 h-16 md:mb-0 mb-3 md:mx-0 mx-auto w-auto" format="webp" width="368" height="104" fit="contain" alt=""></Image>
 			</a>
 			<div class="block">
-				<a href="http://www.globalschoolnet.org/gsncf/"><img src="https://pottery.pages.dev/static/img/cyberfairbanner.jpg" class="md:mx-0 mx-auto" alt=""></a>
+				<a href="http://www.globalschoolnet.org/gsncf/" target="_blank"><img src="https://pottery.pages.dev/static/img/cyberfairbanner.jpg" class="md:mx-0 mx-auto" alt=""></a>
 				<p class="text-gray-600 text-sm text-center mt-2">This site is optimized for 1920x1080 screens <br>
 					© 2022-2023 Saving Coral Reefs (一個中文名稱)</p>
 			</div>
@@ -57,10 +59,16 @@ const { title } = Astro.props;
 </style>
 
 <style is:global>
-	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Righteous&family=Patua+One&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&Noto+Sans:wght@700&family=Righteous&family=Patua+One&display=swap');
 
 	* {
 		font-family: 'Noto Sans', sans-serif;
+		-moz-font-smoothing: none;
+		font-smoothing: antialiased;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	p {
 		text-align: justify;
 	}
 
@@ -69,13 +77,24 @@ const { title } = Astro.props;
 		font-family: 'Righteous', display;
 	}
 
-	h2 {
+	nav h2 {
 		font-size: var(--font-size-lg);
 		font-family: 'Righteous', display;
+		text-align: left;
+	}
+
+	h2:not(nav h2) {
+		font-size: var(--font-size-lg);
+		font-family: 'Righteous', display;
+		text-decoration: underline;
 	}
 
 	h3 {
 		font-size: 1.3rem;
+		font-weight: bold;
+	}
+
+	h4 {
 		font-weight: bold;
 	}
 
@@ -95,5 +114,24 @@ const { title } = Astro.props;
 			'wght' 500,
 			'GRAD' 0,
 			'opsz' 48
+	}
+
+	ol {
+		list-style-type: decimal;
+		padding-left: 2rem;
+		font-size: 0.9rem;
+		margin-bottom: 0.5rem;
+	}
+
+	ul {
+		list-style-type: disc;
+		padding-left: 2rem;
+		font-size: 0.9rem;
+		margin-bottom: 0.5rem;
+	}
+
+	a:not(nav a) {
+		color: #005fef;
+		text-decoration: underline;
 	}
 </style>

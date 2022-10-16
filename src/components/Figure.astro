@@ -1,25 +1,38 @@
 ---
+import { Image } from '@astrojs/image/components';
 export interface Props {
     src: string;
     alt?: string;
     classList?: Array<string>;
     mode?: 'float-right' | 'float-left' | 'center' | 'in:row';
+    imageFit?: 'cover' | 'contain' | 'fill' | 'inside' | 'outside';
+    highQuality?: string;
 }
-const { src, alt, classList, mode } = Astro.props;
+const { src, alt, classList, mode, imageFit, highQuality } = Astro.props;
 
 let modeList = 'lg:m-4 mx-auto mb-4 ';
 if (mode == 'float-right') {
-    modeList += 'lg:float-right lg:w-1/4 w-4/5';
+    modeList += 'lg:float-right lg:w-1/4 w-3/4';
 } else if (mode == 'float-left') {
-    modeList += 'lg:float-left lg:w-1/4 w-4/5';
+    modeList += 'lg:float-left lg:w-1/4 w-3/4';
 } else if (mode == 'center') {
-    modeList += 'lg:mx-auto lg:w-1/2 w-4/5';
+    modeList += 'lg:mx-auto lg:w-1/2 w-3/4';
 } else if (mode == 'in:row') {
-    modeList = 'mb-4 w-4/5 mx-auto';
+    modeList = 'md:mb-0 mb-4 md:w-1/4 w-3/4 mx-auto md:flex-shrink-0';
+} else if (mode == 'in:row-3') {
+    modeList = 'md:mb-0 mb-4 md:w-[28.5%] w-3/4 mx-auto md:flex-shrink-0';
+}
+
+let fit = imageFit == null ? 'cover' : imageFit;
+
+let quality = 300;
+if (highQuality != null) {
+    quality *= (parseFloat(highQuality) + 1);
 }
 ---
 
 <div class:list={[modeList, classList]}>
-    <img class="rounded w-full mb-1" src={src} alt={alt} />
+    <Image class="rounded mb-1 w-full" src={src} alt={alt == null ? "" : alt} 
+        format="webp" width={quality / 3 * 4} height={quality} fit={fit} background="#ffffff00" />
     <figcaption class="text-sm text-gray-600 text-center"><slot /></figcaption>
 </div>
