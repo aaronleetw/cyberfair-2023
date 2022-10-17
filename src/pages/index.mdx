@@ -7,7 +7,7 @@ bg: "/img/cover/002-.jpg"
 import Figure from '@components/Figure.astro';
 import Row from '@components/Row.astro';
 
-<Figure mode="float-right" src="/img/index/C46E74EC-0659-4213-A7C6-A7CBADC739EC.jpeg">Figure 1: Polar bear's tongue stuck in a food can</Figure>
+<Figure mode="float-right" img={import("../assets/img/index/C46E74EC-0659-4213-A7C6-A7CBADC739EC.jpeg")}>Figure 1: Polar bear's tongue stuck in a food can</Figure>
 
 Human's obsession with building factories caused infinite amount of freon and carbon emissions. Humans successfully poked a hole into the ozone layer that has protects the planet from ultraviolet radiation since the dawn of time. Global warming and climate change seems like an immediate consequence right after the industrial revolution. However, the situation we put ourselves in today was never the denouement of a few days of work. It is, in fact, human's blinding and even greedy preference towards efficiency and profit that turns the story of earth into a tragedy. Climate change is not just one of the headlines on the media platforms that people  happen to notice, it is “the mission impossible” of our civilization that seems barely stoppable by now.
 
@@ -22,7 +22,7 @@ The worsening of global warming's situation brings impacts affects a much large 
 Climate change also affects us. In recent years, extreme weather hits different part of the world. Hurricanes (figure 2), extreme cold current, and drought (figure 3) stole people's property. Without annual rain and mild temperature, crops decrease significantly which leads to extensive hunger in numerous countries. What is worse is that some countries are in risk of drowning which would cause homelessness and countless broken families. Obviously, we are facing is a matter of life and death among all ecosystems on this planet. We all feel our heart skip a beat when we see news about extreme weather. Others feel a pain in their chests when animals died because of climate change. Humans truly feel threatened by this huge issue, but most of us are willing to help. Nevertheless, people don't know where to start and what they can do to solve the problem in front of us. Our team realizes this problem and that's why we want to create this website. With this website, we are going to investigate the biggest problem of the 21st century, including the root cause of climate change and contributing factors to the worsening situation, analysis of its impact on Taiwan and the rest of the world, and examination of the past efforts, etc.
 
 <Row>
-    <Figure mode="in:row-3" src="/img/index/Untitled.png">Figure 2: Hurricane's on Belgium's streets</Figure>
-    <Figure mode="in:row-3" src="/img/index/Untitled%201.png">Figure 3: Drought in South Africa due to climate change</Figure>
-    <Figure mode="in:row-3" src="https://via.placeholder.com/600x420">Figure 4: This is a placeholder</Figure>
+    <Figure mode="in:row-3" img={import("../assets/img/index/Untitled.png")}>Figure 2: Hurricane's on Belgium's streets</Figure>
+    <Figure mode="in:row-3" img={import("../assets/img/index/Untitled 1.png")}>Figure 3: Drought in South Africa due to climate change</Figure>
+    <Figure mode="in:row-3" img="https://via.placeholder.com/600x420">Figure 4: This is a placeholder</Figure>
 </Row>

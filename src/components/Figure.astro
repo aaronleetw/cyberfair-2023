@@ -1,14 +1,14 @@
 ---
 import { Image } from '@astrojs/image/components';
 export interface Props {
-    src: string;
+    img: any;
     alt?: string;
     classList?: Array<string>;
     mode?: 'float-right' | 'float-left' | 'center' | 'in:row';
     imageFit?: 'cover' | 'contain' | 'fill' | 'inside' | 'outside';
     highQuality?: string;
 }
-const { src, alt, classList, mode, imageFit, highQuality } = Astro.props;
+const { img, alt, classList, mode, imageFit, highQuality } = Astro.props;
 
 let modeList = 'lg:m-4 mx-auto mb-4 ';
 if (mode == 'float-right') {
@@ -32,7 +32,7 @@ if (highQuality != null) {
 ---
 
 <div class:list={[modeList, classList]}>
-    <Image class="rounded mb-1 w-full" src={src} alt={alt == null ? "" : alt} 
+    <Image class="rounded mb-1 w-full" src={img} alt={alt == null ? "" : alt} 
         format="webp" width={quality / 3 * 4} height={quality} fit={fit} background="#ffffff00" />
     <figcaption class="text-sm text-gray-600 text-center"><slot /></figcaption>
 </div>

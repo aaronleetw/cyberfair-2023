@@ -5,6 +5,7 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+import fhjhImg from '../assets/img/fhjh.png';
 ---
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ const { title } = Astro.props;
 	<footer class="bg-lc4 border-t-black border-t">
 		<div class="md:flex block container mx-auto p-5 items-center justify-between">
 			<a href="https://www.fhjh.tp.edu.tw/" target="_blank">
-				<Image src="/img/fhjh.png" class="md:h-20 h-16 md:mb-0 mb-3 md:mx-0 mx-auto w-auto" format="webp" width="368" height="104" fit="contain" alt=""></Image>
+				<Image src={fhjhImg} class="md:h-20 h-16 md:mb-0 mb-3 md:mx-0 mx-auto w-auto" format="webp" width="368" height="104" fit="contain" alt=""></Image>
 			</a>
 			<div class="block">
 				<a href="http://www.globalschoolnet.org/gsncf/" target="_blank"><img src="https://pottery.pages.dev/static/img/cyberfairbanner.jpg" class="md:mx-0 mx-auto" alt=""></a>
@@ -133,5 +134,9 @@ const { title } = Astro.props;
 	a:not(nav a) {
 		color: #005fef;
 		text-decoration: underline;
+	}
+
+	*::selection {
+		background-color: rgba(197, 245, 95, 0.8);
 	}
 </style>
