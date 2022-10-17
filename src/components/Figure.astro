@@ -10,11 +10,11 @@ export interface Props {
 }
 const { img, alt, classList, mode, imageFit, highQuality } = Astro.props;
 
-let modeList = 'lg:m-4 mx-auto mb-4 ';
+let modeList = 'lg:m-5 mx-auto mb-5 ';
 if (mode == 'float-right') {
-    modeList += 'lg:float-right lg:w-1/4 w-3/4';
+    modeList += 'lg:float-right lg:w-1/4 w-3/4 lg:!mr-0';
 } else if (mode == 'float-left') {
-    modeList += 'lg:float-left lg:w-1/4 w-3/4';
+    modeList += 'lg:float-left lg:w-1/4 w-3/4 !ml-0';
 } else if (mode == 'center') {
     modeList += 'lg:mx-auto lg:w-1/2 w-3/4';
 } else if (mode == 'in:row') {

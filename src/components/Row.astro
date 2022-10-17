@@ -4,6 +4,6 @@ export interface Props {
 }
 const { classList } = Astro.props;
 ---
-<div class:list={["flex items-center md:gap-9 gap-0 md:flex-nowrap flex-wrap", classList]}>
+<div class:list={["flex items-center md:gap-9 gap-0 md:flex-nowrap flex-wrap mb-6", classList]}>
     <slot />
 </div>

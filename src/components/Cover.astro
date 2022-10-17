@@ -6,7 +6,8 @@ export interface Props {
 let { src } = Astro.props;
 src = "url(" + src + ")";
 ---
-<div class="flex top-level items-end mb-3">
+<!-- TODO: background image optimization -->
+<div class="flex top-level items-end mb-6">
   <div class="container mx-auto mb-7">
     <h1 class="text-white text-7xl"><slot/></h1>
   </div>
