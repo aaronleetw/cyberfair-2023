@@ -40,6 +40,26 @@ const { frontmatter } = Astro.props;
 				{name: "About", url: "/en/06"},
 				{name: "Interview with Nature Miffy", url: "/en/06-interview"},
 			]
+		} currUrl={frontmatter.url} />
+		<DropdownNavButton id="activities" name="Activities" links={
+			[
+				{name: "Beach cleanup", url: "/en/activity/beach"},
+				{name: "DIY bamboo basket", url: "/en/activity/bamboo"},
+			]
+		} currUrl={frontmatter.url} />
+		<SingleNavButton href="/en/analysis" currUrl={frontmatter.url}>Survey Analysis</SingleNavButton>
+		<DropdownNavButton id="path" name="Path" links={
+			[
+				{name: "Meeting minutes", url: "/en/path/minutes"},
+				{name: "Photo album", url: "/en/path/album"},
+			]
+		} currUrl={frontmatter.url} />
+		<DropdownNavButton id="conclusion" name="Conclusion" links={
+			[
+				{name: "Reflection", url: "/en/conclusion/reflection"},
+				{name: "Our team & teachers", url: "/en/conclusion/team"},
+				{name: "Bibliography", url: "/en/conclusion/bib"},
+			]
 		} currUrl={frontmatter.url} />		
 		<NavButtonEnd href="#" slot="end">中文</NavButtonEnd>
 		<NavButtonEnd href="#" slot="end">Sitemap</NavButtonEnd>
