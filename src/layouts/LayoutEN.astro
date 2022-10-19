@@ -19,7 +19,7 @@ const { frontmatter } = Astro.props;
 				{name: "Economic impacts", url: "/en/02-3"},
 			]
 		} currUrl={frontmatter.url} />
-		<SingleNavButton href="/en/03" currUrl={frontmatter.url}>Importance of Coral Reefs</SingleNavButton>
+		<SingleNavButton href="/en/03" currUrl={frontmatter.url}>Coral Reefs</SingleNavButton>
 		<DropdownNavButton id="taiwan" name="Coral Reefs in Taiwan" links={
 			[
 				{name: "Introduction of Taiwan", url: "/en/04-1"},
@@ -35,7 +35,12 @@ const { frontmatter } = Astro.props;
 				{name: "Actions we can take", url: "/en/05-4"},
 			]
 		} currUrl={frontmatter.url} />
-		<SingleNavButton href="/en/06" currUrl={frontmatter.url}>Eco-Friendly Stores</SingleNavButton>
+		<DropdownNavButton id="eco_friendly" name="Eco-Friendly Stores" links={
+			[
+				{name: "About", url: "/en/06"},
+				{name: "Interview with Nature Miffy", url: "/en/06-interview"},
+			]
+		} currUrl={frontmatter.url} />		
 		<NavButtonEnd href="#" slot="end">中文</NavButtonEnd>
 		<NavButtonEnd href="#" slot="end">Sitemap</NavButtonEnd>
 	</Nav>
