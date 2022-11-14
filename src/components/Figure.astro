@@ -7,8 +7,9 @@ export interface Props {
     mode?: 'float-right' | 'float-left' | 'center' | 'in:row';
     imageFit?: 'cover' | 'contain' | 'fill' | 'inside' | 'outside';
     highQuality?: string;
+    quality?: string;
 }
-const { img, alt, classList, mode, imageFit, highQuality } = Astro.props;
+const { img, alt, classList, mode, imageFit, highQuality, quality } = Astro.props;
 
 let modeList = 'lg:m-5 mx-auto mb-5 ';
 if (mode == 'float-right') {
@@ -26,14 +27,16 @@ if (mode == 'float-right') {
 
 let fit = imageFit == null ? 'cover' : imageFit;
 
-let quality = 300;
-if (highQuality != null) {
-    quality *= (parseFloat(highQuality) + 1);
+let squality = 300;
+if (quality != null) {
+    squality *= (parseInt(quality) + 1);
+} else if (highQuality != null) {
+    squality *= (parseFloat(highQuality) + 1);
 }
 ---
 
 <div class:list={[modeList, classList]}>
     <Image class="rounded mb-1 w-full" src={img} alt={alt == null ? "" : alt} 
-        format="webp" width={quality / 3 * 4} height={quality} fit={fit} background="#ffffff00" />
+        format="webp" width={squality / 3 * 4} height={squality} fit={fit} background="#ffffff00" />
     <figcaption class="text-sm text-gray-600 text-center"><slot /></figcaption>
 </div>

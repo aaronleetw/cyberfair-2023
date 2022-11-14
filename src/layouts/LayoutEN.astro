@@ -41,12 +41,13 @@ const { frontmatter } = Astro.props;
 				{name: "Interview with Nature Miffy", url: "/en/06-interview"},
 			]
 		} currUrl={frontmatter.url} />
-		<DropdownNavButton id="activities" name="Activities" links={
+		<SingleNavButton href="/en/activities" currUrl={frontmatter.url}>Activities</SingleNavButton>
+		<!-- <DropdownNavButton id="activities" name="Activities" links={
 			[
 				{name: "Beach cleanup", url: "/en/activity/beach"},
 				{name: "DIY bamboo basket", url: "/en/activity/bamboo"},
 			]
-		} currUrl={frontmatter.url} />
+		} currUrl={frontmatter.url} /> -->
 		<SingleNavButton href="/en/analysis" currUrl={frontmatter.url}>Survey Analysis</SingleNavButton>
 		<DropdownNavButton id="path" name="Path" links={
 			[
