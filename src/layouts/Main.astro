@@ -5,7 +5,6 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-import fhjhImg from '../assets/img/fhjh.png';
 ---
 
 <!DOCTYPE html>
@@ -21,16 +20,16 @@ import fhjhImg from '../assets/img/fhjh.png';
 	<body class="bg-bg">
 		<slot />
 	</body>
-	<footer class="bg-lc4 border-t-black border-t">
+	<footer class="bg-gradient-to-r from-[rgba(4,27,21,0.4)] to-[rgba(5,51,45,0.4)] border-t-black border-t">
 		<div class="md:flex block container mx-auto p-5 items-center justify-between">
 			<a href="https://www.fhjh.tp.edu.tw/" target="_blank">
-				<Image src={fhjhImg} class="md:h-20 h-16 md:mb-0 mb-3 md:mx-0 mx-auto w-auto" format="webp" width="368" height="104" fit="contain" alt=""></Image>
+				<Image src={import('../assets/img/fhjh.png')} class="md:h-20 h-16 md:mb-0 mb-3 md:mx-0 mx-auto w-auto" format="webp" width="368" height="104" fit="contain" alt=""></Image>
 			</a>
 			<div class="block">
 				<a href="http://www.globalschoolnet.org/gsncf/" target="_blank">
 					<Image src={"https://pottery.pages.dev/static/img/cyberfairbanner.jpg"} format="webp" width="468" height="65" class="md:mx-0 mx-auto" alt=""></Image>
 				</a>
-				<p class="text-gray-600 text-sm text-center mt-2 mb-0">This site is optimized for 1920x1080 screens <br>
+				<p class="text-black text-sm text-center mt-2 mb-0">This site is optimized for 1920x1080 screens <br>
 					© 2022-2023 Saving Coral Reefs (一個中文名稱)</p>
 			</div>
 		</div>
@@ -39,7 +38,7 @@ import fhjhImg from '../assets/img/fhjh.png';
 <style>
 	:root {
 		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.5rem, 0.7vw + 1.5rem, 2rem);
+		--font-size-lg: clamp(1.3rem, 0.7vw + 1.3rem, 1.5rem);
 		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
 
 		--color-text: hsl(12, 5%, 4%);
@@ -73,7 +72,7 @@ import fhjhImg from '../assets/img/fhjh.png';
 
 	h1 {
 		font-size: var(--font-size-xl);
-		font-family: 'Righteous', display;
+		font-family: 'Merriweather', display;
 	}
 
 	nav h2 {
@@ -84,13 +83,15 @@ import fhjhImg from '../assets/img/fhjh.png';
 
 	h2:not(nav h2) {
 		font-size: var(--font-size-lg);
-		font-family: 'Righteous', display;
+		font-family: 'Merriweather', display;
+		font-weight: bold;
 		/* text-decoration: underline; */
 		margin-bottom: 0.5rem;
 	}
 
 	h3 {
-		font-size: 1.3rem;
+		font-size: 1.1rem;
+		font-family: 'Merriweather', display;
 		font-weight: bold;
 		margin-bottom: 0.4rem;
 	}
@@ -106,10 +107,14 @@ import fhjhImg from '../assets/img/fhjh.png';
 	}
 
 	p {
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		margin-bottom: 1.5rem;
 		line-height: 1.75rem;
 		text-align: justify;
+	}
+
+	a {
+		font-size: 0.8rem;
 	}
 
 	.material-symbols-outlined {
@@ -123,14 +128,14 @@ import fhjhImg from '../assets/img/fhjh.png';
 	ol {
 		list-style-type: decimal;
 		padding-left: 2rem;
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		margin-bottom: 1.5rem;
 	}
 
 	ul {
 		list-style-type: disc;
 		padding-left: 2rem;
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		margin-bottom: 1.5rem;
 	}
 
