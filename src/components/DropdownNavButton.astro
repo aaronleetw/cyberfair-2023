@@ -64,21 +64,24 @@ for (const link of links) {
   const container = document.querySelector(id);
   const button = document.querySelector(id + ' .activator.group');
   const tooltip = document.querySelector(id + ' .menu');
-  Popper.createPopper(button, tooltip, {
-    placement: "bottom-start",
-    modifiers: [
-      Popper.preventOverflow,
-      Popper.flip,
-      {
-        name: "offset",
-        options: {
-          offset: [0, 8],
+
+  window.addEventListener('load', function () {
+    Popper.createPopper(button, tooltip, {
+      placement: "bottom-start",
+      modifiers: [
+        Popper.preventOverflow,
+        Popper.flip,
+        {
+          name: "offset",
+          options: {
+            offset: [0, 8],
+          },
         },
-      },
-    ],
-    onFirstUpdate: () => {
-      container.dataset.active = "0";
-    }
+      ],
+      onFirstUpdate: () => {
+        container.dataset.active = "0";
+      }
+    });
   });
 
   button.addEventListener('click', () => {
