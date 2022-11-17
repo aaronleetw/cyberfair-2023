@@ -9,8 +9,8 @@ import NavButtonEnd from '../components/NavButtonEnd.astro';
 const { frontmatter } = Astro.props;
 ---
 
-<Main title={frontmatter.title + " | Saving Coral Reefs"}>
-	<Nav title="Saving Coral Reefs">
+<Main title={frontmatter.title + " | Coral Reefs: The Endangered Beauty"}>
+	<Nav title="Coral Reefs:" subtitle="The Endangered Beauty">
 		<SingleNavButton href="/" currUrl={frontmatter.url}>Home</SingleNavButton>
 		<DropdownNavButton id="coral" name="Climate Change" links={
 			[

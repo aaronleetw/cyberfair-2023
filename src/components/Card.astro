@@ -1,76 +1,36 @@
 ---
+import Figure from '@components/Figure.astro';
 export interface Props {
-	title: string;
-	body: string;
-	href: string;
+	name: string;
+	img: any;
+	imageFit?: 'cover' | 'contain' | 'fill' | 'inside' | 'outside';
 }
 
-const { href, title, body } = Astro.props;
+const { name, img, imageFit } = Astro.props;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
-<style>
-	:root {
-		--link-gradient: linear-gradient(45deg, #4f39fa, #da62c4 30%, var(--color-border) 60%);
-	}
+<div class="border-gray-400 border w-[16rem] rounded card bg-dkrbg lg:hover:scale-105">
+	<Figure classList={["!m-0 rounded-b-none"]} img={img} imageFit={imageFit} />
+	<div class="p-3">
+		<h3 class="text-center">{name}</h3>
+		<slot />
+	</div>
+</div>
 
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 0.15rem;
-		background-image: var(--link-gradient);
-		background-size: 400%;
-		border-radius: 0.5rem;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: 1em 1.3em;
-		border-radius: 0.35rem;
-		color: var(--text-color);
-		background-color: white;
-		opacity: 0.8;
-	}
-
-	h2 {
+<style is:global>
+	.card p {
 		margin: 0;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		text-align: center;
 	}
-
-	p {
-		margin-top: 0.75rem;
-		margin-bottom: 0;
+	.card img {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
 	}
-
-	h2 span {
-		display: inline-block;
-		transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-	}
-
-	.link-card:is(:hover, :focus-within) h2 {
-		color: #4f39fa;
-	}
-
-	.link-card:is(:hover, :focus-within) h2 span {
-		will-change: transform;
-		transform: translateX(2px);
-	}
+</style>
+<style>
+	div {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 400ms;
+    }
 </style>

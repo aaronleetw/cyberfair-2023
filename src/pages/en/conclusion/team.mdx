@@ -3,3 +3,41 @@ layout: "@layouts/LayoutEN.astro"
 title: "Our team & teachers"
 bg: "/assets/img/cover/-03.webp"
 ---
+
+import Card from "@components/Card.astro";
+
+<h2 class="text-center mb-5">Team Members</h2>
+<div class="flex flex-wrap lg:justify-between justify-evenly gap-7 mb-5">
+    <Card name="Aaron" img={import('../../../assets/img/team/aaron.jpg')}>
+        "Sometimes it's the imperfect stuff that makes things perfect." — Mary Cooper: The Big Bang Theory
+    </Card>
+    <Card name="Alvin" img={import('../../../assets/img/team/alvin.jpg')}>
+        "Sometimes in my tent, late at night, I think I can hear the stars scraping against the sky." — Rick Yancey
+    </Card>
+    <Card name="Cindy" img={import('../../../assets/img/team/cindy.jpg')}>
+        "When given the choice between being right and being kind, choose kind." — R.J. Palacio
+    </Card>
+    <Card name="Catherine" img={import('../../../assets/img/team/catherine.jpg')}>
+        Coming together is a beginning. Keeping together is progress. Working together is success. — Henry Ford
+    </Card>
+    <Card name="Hiro" img={import('../../../assets/img/team/hiro.jpg')}>
+        Work hard, Dream big.
+    </Card>
+    <Card name="Jessica" img={import('../../../assets/img/team/jessica.jpg')}>
+        "Who told you the lemonade made from the lemon life gives you would be less tormenting? Be smart; send it back and ask for a refund."
+    </Card>
+    <Card name="Kate" img={import('../../../assets/img/team/kate.jpg')}>
+        "The greatest mistake you can make in life is continually fearing that you'll make one." — Elbert Hubbard
+    </Card>
+    <Card name="Summer" img={import('../../../assets/img/team/summer.jpg')}>
+        Question everything, learn something
+    </Card>
+</div>
+
+---
+
+<h2 class="text-center mt-5 mb-5">Teachers</h2>
+<div class="flex flex-wrap justify-evenly gap-7 mb-5">
+    <Card name="Ms. Huang" img={import('../../../assets/img/team/mshuang.jpg')} imageFit="inside"></Card>
+    <Card name="Mr. Chin" img={import('../../../assets/img/team/mrchin.jpg')} imageFit="inside"></Card>
+</div>

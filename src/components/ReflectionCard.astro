@@ -1,0 +1,28 @@
+---
+import Figure from '@components/Figure.astro';
+export interface Props {
+	img: any;
+}
+
+const { img } = Astro.props;
+---
+
+<div class="lg:flex rounded bg-dkrbg reflection-card mb-5 lg:hover:scale-105">
+    <Figure classList={["lg:m-0 m-1! lg:w-1/6 lg:float-none mb-0 mr-3 md:w-1/4 w-1/2 float-left shrink-0"]} img={img} />
+    <div class="m-3 shrink">
+        <slot />
+    </div>
+</div>
+
+<style is:global>
+    .reflection-card p {
+        margin-bottom: 0;
+    }
+</style>
+<style>
+    div {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 400ms;
+    }
+</style>

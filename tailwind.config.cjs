@@ -13,6 +13,7 @@ module.exports = {
 				'lc4': '#DCFFFC',
 				'llc4': '#f5fffe',
 				'bg': '#EEF6DD',
+				'dkrbg': '#dae3c3',
 			},
 		},
 		container: {

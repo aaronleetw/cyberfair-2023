@@ -1,17 +1,19 @@
 ---
 export interface Props {
     title: string;
+    subtitle?: string;
     icon?: string;
 }
-const { title, icon } = Astro.props;
+const { title, subtitle, icon } = Astro.props;
 ---
 
 <nav class="bg-gradient-to-r from-c1 to-dc2 p-3 text-white shadow-lg sticky top-0 z-50">
     <div class="flex items-center justify-between">
         <div class="flex justify-start">
             <a href="/" class="group transition duration-300 mr-4 flex-shrink-0 self-center">
-                <h2 class="text-2xl">{title}</h2>
+                <h2 class="text-2xl mb-0">{title}</h2>
                 <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+                <p class="mb-0">{subtitle}</p>
             </a>
             <div id="menu" class="lg:flex lg:items-center lg:gap-1 flex-wrap hidden">
                 <slot>
