@@ -1,0 +1,12 @@
+---
+import Figure from '@components/Figure.astro';
+export interface Props {
+    img: any;
+}
+
+const { img } = Astro.props;
+---
+
+<div class="lg:w-1/5 md:w-1/3 sm:w-1/2 w-full">
+    <Figure classList={["!m-1"]} img={img} />
+</div>
