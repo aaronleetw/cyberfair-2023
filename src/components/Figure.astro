@@ -37,6 +37,6 @@ if (quality != null) {
 
 <div class:list={[modeList, classList]}>
     <Image class="rounded mb-1 w-full" src={img} alt={alt == null ? "" : alt} 
-        format="webp" width={squality / 3 * 4} height={squality} fit={fit} background="#ffffff00" />
+        format="jpg" width={squality / 3 * 4} height={squality} fit={fit} background="#ffffff00" loading="eager" />
     <figcaption class="text-sm text-gray-600 text-center"><slot /></figcaption>
 </div>

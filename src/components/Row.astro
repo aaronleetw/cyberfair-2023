@@ -4,6 +4,13 @@ export interface Props {
 }
 const { classList } = Astro.props;
 ---
-<div class:list={["flex items-center md:gap-9 gap-0 md:flex-nowrap flex-wrap mb-6", classList]}>
+<div class:list={["flex items-center md:gap-9 gap-0 md:flex-nowrap flex-wrap mb-6 row-astro", classList]}>
     <slot />
 </div>
+<style is:global>
+    @supports not ((gap: 2.25rem) with (display: flex)) {
+        .row-astro>* {
+            margin: 2.25rem;
+        }
+    }
+</style>
