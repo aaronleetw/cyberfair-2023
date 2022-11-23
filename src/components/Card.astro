@@ -9,7 +9,7 @@ export interface Props {
 const { name, img, imageFit } = Astro.props;
 ---
 
-<div class="border-gray-400 border w-[16rem] rounded card bg-dkrbg lg:hover:scale-105">
+<div class="border-gray-400 border w-[16rem] rounded card bg-dkrbg lg:hover:scale-105 mt-7">
 	<Figure classList={["!m-0 rounded-b-none"]} img={img} imageFit={imageFit} />
 	<div class="p-3">
 		<h3 class="text-center">{name}</h3>
