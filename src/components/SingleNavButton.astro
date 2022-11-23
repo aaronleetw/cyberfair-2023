@@ -6,18 +6,11 @@ export interface Props {
 const { href, currUrl } = Astro.props;
 const active = href === currUrl || (href === '/' && currUrl === '');
 ---
-<div class="single-nav-button">
-    {active ? 
-        <a href={href} class="p-2 group bg-llc4 transition-all rounded text-sm pointer-events-none">
-            <span class="text-c2"><slot /></span>
-        </a> :
-        <a href={href} class="p-2 group hover:bg-lc4 transition-all rounded text-sm">
-            <span class="text-gray-300 group-hover:!text-c2"><slot /></span>
-        </a>
-    }
-</div>
-<style is:global>
-    div.single-nav-button * {
-        font-size: 0.8rem;
-    }
-</style>
+{active ? 
+    <a href={href} class="p-2 group bg-llc4 transition-all rounded pointer-events-none text-[0.8rem] mr-1">
+        <span class="text-c2"><slot /></span>
+    </a> :
+    <a href={href} class="p-2 group hover:bg-lc4 transition-all rounded text-[0.8rem] mr-1">
+        <span class="text-gray-300 group-hover:!text-c2"><slot /></span>
+    </a>
+}

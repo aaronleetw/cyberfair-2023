@@ -18,10 +18,10 @@ for (const link of links) {
 }
 ---
 
-<div id={id} class="dropdown-nav-button" data-active="0">
-  <div class="p-2 activator group hover:bg-lc4 transition-all rounded text-sm cursor-pointer" data-componentactive={componentActive ? "1" : "0"}>
+<div id={id} class="dropdown-nav-button text-[0.8rem] lg:mr-1" data-active="0">
+  <div class="p-2 activator group hover:bg-lc4 transition-all rounded cursor-pointer" data-componentactive={componentActive ? "1" : "0"}>
     <div class="text-gray-300 group-hover:!text-c2 flex justify-center">
-      {name} <span id="chevron" class="material-symbols-outlined">expand_more</span>
+      <span class="self-center">{name}</span> <span id="chevron" class="material-symbols-outlined">expand_more</span>
     </div>
   </div>
   <div class="menu absolute bg-white rounded border-gray-300 border">
@@ -33,12 +33,9 @@ for (const link of links) {
   </div>
 </div>
 <style is:global>
-  div.dropdown-nav-button * {
-    font-size: 0.8rem;
-  }
   div.dropdown-nav-button .material-symbols-outlined {
-        font-size: 24px !important;
-    }
+    font-size: 24px !important;
+  }
   div.dropdown-nav-button[data-active="1"] .activator.group {
     background-color: rgb(220 255 252);
   }
