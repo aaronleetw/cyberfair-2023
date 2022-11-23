@@ -18,7 +18,7 @@ for (const link of links) {
 }
 ---
 
-<div id={id} data-active="0">
+<div id={id} class="dropdown-nav-button" data-active="0">
   <div class="p-2 activator group hover:bg-lc4 transition-all rounded text-sm cursor-pointer" data-componentactive={componentActive ? "1" : "0"}>
     <div class="text-gray-300 group-hover:!text-c2 flex justify-center">
       {name} <span id="chevron" class="material-symbols-outlined">expand_more</span>
@@ -32,33 +32,35 @@ for (const link of links) {
     ))}
   </div>
 </div>
-<style>
-  * {
+<style is:global>
+  div.dropdown-nav-button * {
     font-size: 0.8rem;
   }
-  
-  div[data-active="1"] .activator.group {
+  div.dropdown-nav-button .material-symbols-outlined {
+        font-size: 24px !important;
+    }
+  div.dropdown-nav-button[data-active="1"] .activator.group {
     background-color: rgb(220 255 252);
   }
-  .activator.group[data-componentactive="1"] {
+  div.dropdown-nav-button .activator.group[data-componentactive="1"] {
     background-color: #fff;
   }
-  div[data-active="1"] .activator.group div, .activator.group[data-componentactive="1"] div {
+  div.dropdown-nav-button[data-active="1"] .activator.group div, .activator.group[data-componentactive="1"] div {
     color: rgb(19 111 99);
   }
-  div[data-active="0"] .menu {
+  div.dropdown-nav-button[data-active="0"] .menu {
     visibility: hidden;
   }
-  div[data-active="1"] .menu {
+  div.dropdown-nav-button[data-active="1"] .menu {
     visibility: visible;
   }
-  div .activator.group #chevron {
+  div.dropdown-nav-button .activator.group #chevron {
     transition: transform 0.2s ease-in-out;
   }
-  div[data-active="1"] .activator.group #chevron {
+  div.dropdown-nav-button[data-active="1"] .activator.group #chevron {
     transform: rotate(180deg);
   }
-  div.menu a[data-selectionactive="1"] {
+  div.dropdown-nav-button div.menu a[data-selectionactive="1"] {
     background-color: rgb(220 255 252);
     pointer-events: none;
     cursor: default;

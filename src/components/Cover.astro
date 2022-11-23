@@ -6,20 +6,20 @@ export interface Props {
 let { src } = Astro.props;
 src = "url(" + src + ")";
 ---
-<div class="flex top-level items-end mb-6">
+<div class="flex cover top-level items-end mb-6">
   <div class="container mx-auto mb-7">
     <h1 class="text-white text-7xl"><slot/></h1>
   </div>
 </div>
-<style define:vars={{src}}>
-    div.top-level {
+<style is:global define:vars={{src}}>
+    div.cover.top-level {
       background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), var(--src);
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
       min-height: 400px;
     }
-    h1 {
+    div.cover h1 {
       font-family: 'Patua One';
     }
 </style>

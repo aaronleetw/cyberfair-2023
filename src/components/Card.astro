@@ -18,19 +18,17 @@ const { name, img, imageFit } = Astro.props;
 </div>
 
 <style is:global>
-	.card p {
-		margin: 0;
-		text-align: center;
-	}
-	.card img {
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-	}
-</style>
-<style>
-	div {
+	div.card {
         transition-property: all;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-duration: 400ms;
-    }
+	}
+	div.card p {
+		margin: 0;
+		text-align: center;
+	}
+	div.card img {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
 </style>

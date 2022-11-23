@@ -26,8 +26,8 @@ const { img, title, date, attendance, imageFit } = Astro.props;
         <Figure img={img} classList={['!m-5 xl:w-4/5 md:w-1/3 w-2/3 text-center']} imageFit={imageFit} />
     </div>
 </div>
-<style>
-    .meeting :global(p, li, ul, h3) {
+<style is:global>
+    div.meeting :global(p, li, ul, h3) {
         margin-bottom: 0 !important;
     }
 </style>
