@@ -1,0 +1,93 @@
+---
+import Main from '../layouts/Main.astro';
+import Cover from '../components/Cover.astro';
+import Nav from '../components/Nav.astro';
+import SingleNavButton from '../components/SingleNavButton.astro';
+import DropdownNavButton from '../components/DropdownNavButton.astro';
+import NavButtonEnd from '../components/NavButtonEnd.astro';
+import switchLang from 'src/assets/js/switchLang';
+
+const { frontmatter } = Astro.props;
+---
+
+<Main title={frontmatter.title + " | 珊瑚礁之淚"}>
+	<Nav href="/zh" title="珊瑚礁之淚">
+		<SingleNavButton href="/zh" currUrl={frontmatter.url}>首頁</SingleNavButton>
+		<DropdownNavButton id="coral" name="氣候變遷" links={
+			[
+				{name: "為什麼會氣候變遷", url: "/zh/02-1"},
+				{name: "生態環境上的影響", url: "/zh/02-2"},
+				{name: "經濟層面的影響", url: "/zh/02-3"},
+			]
+		} currUrl={frontmatter.url} />
+		<SingleNavButton href="/zh/03" currUrl={frontmatter.url}>珊瑚的正面影響</SingleNavButton>
+		<DropdownNavButton id="taiwan" name="台灣的珊瑚礁" links={
+			[
+				{name: "關於台灣", url: "/zh/04-1"},
+				{name: "台灣的珊瑚種類及生長地點", url: "/zh/04-2"},
+				{name: "珊瑚危機", url: "/zh/04-3"},
+			]
+		} currUrl={frontmatter.url} />
+		<DropdownNavButton id="combating" name="搶救珊瑚礁" links={
+			[
+				{name: "過去的努力", url: "/zh/05-1"},
+				{name: "在都市發展和解決氣候變遷問題之間找到平衡", url: "/zh/05-2"},
+				{name: "讓大眾對環保議題有警覺", url: "/zh/05-3"},
+				{name: "環境保護從我做起", url: "/zh/05-4"},
+			]
+		} currUrl={frontmatter.url} />
+		<DropdownNavButton id="eco_friendly" name="環境友善店家" links={
+			[
+				{name: "台灣的環境友善店家", url: "/zh/06"},
+				{name: "與錄兔子工作室的訪談", url: "/zh/06-interview"},
+			]
+		} currUrl={frontmatter.url} />
+		<SingleNavButton href="/zh/activities" currUrl={frontmatter.url}>活動</SingleNavButton>
+		<SingleNavButton href="/zh/analysis" currUrl={frontmatter.url}>問卷調查</SingleNavButton>
+		<DropdownNavButton id="path" name="紀錄" links={
+			[
+				{name: "會議紀錄", url: "/zh/path/minutes"},
+				{name: "相簿", url: "/zh/path/album"},
+			]
+		} currUrl={frontmatter.url} />
+		<DropdownNavButton id="conclusion" name="結語" links={
+			[
+				{name: "心得感想", url: "/zh/conclusion/reflection"},
+				{name: "組員及指導老師", url: "/zh/conclusion/team"},
+				{name: "參考資料", url: "/zh/conclusion/bib"},
+			]
+		} currUrl={frontmatter.url} />
+		<NavButtonEnd href="#" slot="end">網站地圖</NavButtonEnd>
+		<NavButtonEnd href={switchLang(frontmatter.url, 'en')} slot="end">English</NavButtonEnd>
+	</Nav>
+	<Cover src={frontmatter.bg}>{frontmatter.title}</Cover>
+	<div class="container mx-auto">
+		<slot/>
+	</div>
+	<style is:global>
+		p {
+			font-size: 0.9rem;
+			margin-bottom: 1.5rem;
+			line-height: 1.75rem;
+			text-align: justify;
+		}
+
+		a, nav div.dropdown-nav-button {
+			font-size: 0.9rem !important;
+		}
+
+		ol {
+			list-style-type: decimal;
+			padding-left: 2rem;
+			font-size: 0.9rem;
+			margin-bottom: 1.5rem;
+		}
+
+		ul {
+			list-style-type: disc;
+			padding-left: 2rem;
+			font-size: 0.9rem;
+			margin-bottom: 1.5rem;
+		}
+	</style>
+</Main>

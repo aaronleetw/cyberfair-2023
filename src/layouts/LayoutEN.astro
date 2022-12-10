@@ -5,12 +5,13 @@ import Nav from '../components/Nav.astro';
 import SingleNavButton from '../components/SingleNavButton.astro';
 import DropdownNavButton from '../components/DropdownNavButton.astro';
 import NavButtonEnd from '../components/NavButtonEnd.astro';
+import switchLang from 'src/assets/js/switchLang';
 
 const { frontmatter } = Astro.props;
 ---
 
 <Main title={frontmatter.title + " | Coral Reefs: The Endangered Beauty"}>
-	<Nav title="Coral Reefs:" subtitle="The Endangered Beauty">
+	<Nav href="/" title="Coral Reefs:" subtitle="The Endangered Beauty">
 		<SingleNavButton href="/" currUrl={frontmatter.url}>Home</SingleNavButton>
 		<DropdownNavButton id="coral" name="Climate Change" links={
 			[
@@ -61,9 +62,9 @@ const { frontmatter } = Astro.props;
 				{name: "Our team & teachers", url: "/en/conclusion/team"},
 				{name: "Bibliography", url: "/en/conclusion/bib"},
 			]
-		} currUrl={frontmatter.url} />		
-		<NavButtonEnd href="#" slot="end">中文</NavButtonEnd>
+		} currUrl={frontmatter.url} />
 		<NavButtonEnd href="#" slot="end">Sitemap</NavButtonEnd>
+		<NavButtonEnd href={switchLang(frontmatter.url, 'zh')} slot="end">中文</NavButtonEnd>
 	</Nav>
 	<Cover src={frontmatter.bg}>{frontmatter.title}</Cover>
 	<div class="container mx-auto">
