@@ -63,7 +63,7 @@ const { frontmatter } = Astro.props;
 				{name: "Bibliography", url: "/en/conclusion/bib"},
 			]
 		} currUrl={frontmatter.url} />
-		<NavButtonEnd href="#" slot="end">Sitemap</NavButtonEnd>
+		<NavButtonEnd href="/en/sitemap" slot="end">Sitemap</NavButtonEnd>
 		<NavButtonEnd href={switchLang(frontmatter.url, 'zh')} slot="end">中文</NavButtonEnd>
 	</Nav>
 	<Cover src={frontmatter.bg}>{frontmatter.title}</Cover>
